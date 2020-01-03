@@ -1,0 +1,15 @@
+.content{
+  height:100vh;
+  width:100%;
+  display: flex;
+}
+.Nav_left{
+  width:250px;
+  height:100vh;
+  background: #001526;
+}
+.Con_right{
+  flex:1;
+  height:100vh;
+  background: #eee;
+}

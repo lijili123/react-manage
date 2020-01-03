@@ -1,0 +1,12 @@
+.nav-img{
+  width:100%;
+  text-align: center;
+  padding:5px 0;
+}
+.nav-img img{
+  width:80%;
+}
+.nav-menu{
+  /*text-align: center;*/
+  color: #fff;
+}

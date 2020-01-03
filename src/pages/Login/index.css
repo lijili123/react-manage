@@ -1,0 +1,24 @@
+.login-con {
+  height: 100vh;
+  display: flex;
+}
+.login-title{
+  font-size: 32px;
+  color: #000;
+  text-align: center;
+  padding-bottom:20px;
+}
+.login-left{
+  height:100vh;
+  flex:1;
+  background: #379FFF;
+}
+
+.login-right{
+  width:400px;
+  margin: 0 auto;
+  padding:300px 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
