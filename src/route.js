@@ -17,21 +17,13 @@ export default class IRouter  extends React.Component{
       <div>
         <HashRouter>
             <Switch>
-              <Route exact={true} path="/login" component={Login}></Route>
-              {/*<PrivateRoute user={user}>*/}
-                {/*<Admin>*/}
-                  {/*<Route exact={true} path="/home" component={Home}></Route>*/}
-                  {/*<Route exact={true} path="/list" component={List}></Route>*/}
-                  {/*<Route component={NoMatch}></Route>*/}
-                {/*</Admin>*/}
-              {/*</PrivateRoute>*/}
-              <PrivateRoute user={user} render={()=>
+              <Route exact={true} path="/" component={Login}></Route>
+              <PrivateRoute user={user} path="/home">
                 <Admin>
                   <Route exact={true} path="/home" component={Home}></Route>
                   <Route exact={true} path="/list" component={List}></Route>
                   <Route component={NoMatch}></Route>
                 </Admin>
-              }>
               </PrivateRoute>
             </Switch>
         </HashRouter>
