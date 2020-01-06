@@ -1,5 +1,4 @@
-
-const menuList=[
+const menuList = [
   // {
   //   title: '首页',
   //   key: '/home'
@@ -23,28 +22,28 @@ const menuList=[
   //   ]
   // },
   {
-    name: '首页',
-    path: '/home'
+    name: "首页",
+    path: "/home"
   },
   {
-    name: '列表',
-    path: '/list'
+    name: "列表",
+    path: "/home/list"
   },
   {
-    name: '关于我们',
-    path: '/about',
-    children:[
+    name: "关于我们",
+    path: "/about",
+    children: [
       {
-        name: '关于我们1',
-        path: '/about1',
+        name: "关于我们1",
+        path: "/about1"
       },
       {
-        name: '关于我们2',
-        path: '/about2',
+        name: "关于我们2",
+        path: "/about2"
       }
     ]
   }
-]
+];
 // let menus=JSON.parse(window.sessionStorage.getItem('menus'))
 // function formatMenus(data) {
 //   data.forEach(item=>{
