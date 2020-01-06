@@ -16,7 +16,7 @@ class Login extends React.Component{
     var _this=this
     console.log(_this.props.history);
     window.sessionStorage.setItem('user',true)
-    _this.props.history.replace('/home')
+    _this.props.history.replace('/')
     // this.props.form.validateFields((err,values)=>{
     //   axios({
     //     url:`/frame/login?lvcode=${userInfo.code}`,
