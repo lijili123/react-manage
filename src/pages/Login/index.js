@@ -26,10 +26,7 @@ class Login extends React.Component {
     var _this = this;
     console.log(_this.props.history);
     window.sessionStorage.setItem("user", true);
-    var timer = setTimeout(function() {
-      _this.props.history.replace("/home");
-      clearTimeout(timer);
-    }, 1000);
+    _this.props.history.replace("/");
 
     // this.props.form.validateFields((err,values)=>{
     //   axios({

@@ -15,12 +15,14 @@ export default class IRouter extends React.Component {
     return (
       <HashRouter>
         <Switch>
-          <Route exact={true} path="/" component={Login}></Route>
-          <PrivateRoute path="/home">
+          <Route exact={true} path="/login" component={Login}></Route>
+          <PrivateRoute path="/">
             <Admin>
-              <Route exact={true} path="/home" component={Home}></Route>
-              <Route path="/home/list" component={List}></Route>
-              <Route component={NoMatch}></Route>
+              <Switch>
+                <Route path="/" component={Home}></Route>
+                <Route path="/list" component={List}></Route>
+                <Route component={NoMatch}></Route>
+              </Switch>
             </Admin>
           </PrivateRoute>
         </Switch>

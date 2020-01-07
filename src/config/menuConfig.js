@@ -23,11 +23,11 @@ const menuList = [
   // },
   {
     name: "首页",
-    path: "/home"
+    path: "/"
   },
   {
     name: "列表",
-    path: "/home/list"
+    path: "/list"
   },
   {
     name: "关于我们",
