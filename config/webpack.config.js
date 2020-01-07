@@ -385,6 +385,11 @@ module.exports = function(webpackEnv) {
                       },
                     },
                   ],
+                  ['import', {
+                    libraryName: 'antd',
+                    libraryDirectory: 'es',
+                    style: 'css' // `style: true` 会加载 less 文件
+                  }]
                 ],
                 // This is a feature of `babel-loader` for webpack (not Babel itself).
                 // It enables caching results in ./node_modules/.cache/babel-loader/
@@ -421,6 +426,28 @@ module.exports = function(webpackEnv) {
                 sourceMaps: shouldUseSourceMap,
                 inputSourceMap: shouldUseSourceMap,
               },
+            },
+            {
+              test: /\.less$/,
+              use:[
+                {
+                  loader:'style-loader'
+                },
+                {
+                  loader:'css-loader'
+                },
+                {
+                  loader:'less-loader',
+                  options:{
+                    modifyVars:{
+                      'primary-color':'#1DA57A',
+                      'link-color': '#1DA57A',
+                      'border-radius-base': '2px',
+                      javascriptEnabled: true,
+                    }
+                  }
+                },
+              ]
             },
             // "postcss" loader applies autoprefixer to our CSS.
             // "css" loader resolves paths in CSS and adds assets as dependencies.
