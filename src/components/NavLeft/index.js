@@ -12,7 +12,7 @@ const { SubMenu } = Menu;
 
 class NavLeft extends React.Component{
   state={
-    currentKey: '/home',
+    currentKey: '/',
     arr:[
       {
         title: '首页',

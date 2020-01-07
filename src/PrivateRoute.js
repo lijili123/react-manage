@@ -1,10 +1,12 @@
 /**
  * Created by Ljili on 2019/12/31.
  */
-import React from 'react'
-import { Route,Redirect } from 'react-router-dom'
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
 
-function PrivateRoute({ user,children, ...rest }) {
+function PrivateRoute({ children, ...rest }) {
+  let user = JSON.parse(window.sessionStorage.getItem("user"));
+  console.log("PrivateRoute-user", user);
   return (
     <Route
       {...rest}
@@ -14,7 +16,7 @@ function PrivateRoute({ user,children, ...rest }) {
         ) : (
           <Redirect
             to={{
-              pathname: "/",
+              pathname: "/login",
               state: { from: location }
             }}
           />
@@ -23,4 +25,4 @@ function PrivateRoute({ user,children, ...rest }) {
     />
   );
 }
-export default PrivateRoute
+export default PrivateRoute;
