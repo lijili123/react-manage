@@ -7,6 +7,7 @@ export default class Home extends React.Component {
     return (
       <div className="home-con">
         this is Home page.
+        <div className="test">测试less编译生效</div>
       </div>
     );
   }
