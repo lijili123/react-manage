@@ -7,7 +7,7 @@ import Home from './pages/router_demo/router1/Home';
 import RouteDemo from './pages/router_demo/router2/router';
 import RouteD from './pages/router_demo/router3/router';
 import IRouter from './route'
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';//加入按需加载会自动加载css和js
 import { Provider  } from 'react-redux'
 import store from './pages/redux/store'
 import * as serviceWorker from './serviceWorker';

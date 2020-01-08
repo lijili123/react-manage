@@ -372,8 +372,12 @@ module.exports = function(webpackEnv) {
                 customize: require.resolve(
                   'babel-preset-react-app/webpack-overrides'
                 ),
-                
                 plugins: [
+                  ['import', {
+                      libraryName: "antd",
+                      libraryDirectory: "es",
+                      style: true// `style: true` 会加载 less 文件 //less版本必须是3.0以下此项目中使用2.7.3版本否则会报错
+                  }],
                   [
                     require.resolve('babel-plugin-named-asset-import'),
                     {
@@ -422,6 +426,7 @@ module.exports = function(webpackEnv) {
                 inputSourceMap: shouldUseSourceMap,
               },
             },
+
             // "postcss" loader applies autoprefixer to our CSS.
             // "css" loader resolves paths in CSS and adds assets as dependencies.
             // "style" loader turns CSS into JS modules that inject <style> tags.
@@ -487,6 +492,26 @@ module.exports = function(webpackEnv) {
                 },
                 'sass-loader'
               ),
+            },
+            {
+              test: /\.less$/,
+              use:[
+                {
+                  loader:require.resolve('style-loader')
+                },
+                {
+                  loader: require.resolve('css-loader')
+                },
+                {
+                  loader: require.resolve('less-loader'),
+                  options:{
+                    modifyVars:{
+                      javascriptEnabled: true,
+                      '@primary-color':'#B69AE6',
+                    }
+                  }
+                },
+              ]
             },
             // "file" loader makes sure those assets get served by WebpackDevServer.
             // When you `import` an asset, you get its (virtual) filename.
