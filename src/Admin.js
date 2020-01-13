@@ -18,10 +18,13 @@ class Admin extends React.Component{
         </div>
         <div className="Con_right">
           <Header></Header>
-          <div className="bread"> 通过store.getState()获取状态 {this.props.menuName}</div>
-          <div className="bread"> 通过this.props获取状态 {store.getState().menuName}</div>
-          <div>
-            {this.props.children}
+          <div  className="main-con">
+            <div className='bread-main'><h2>{store.getState().menuName}</h2></div>
+            {/*<div className="bread"> 通过store.getState()获取状态 {this.props.menuName}</div>*/}
+            {/*<div className="bread"> 通过this.props获取状态 {store.getState().menuName}</div>*/}
+            <div>
+              {this.props.children}
+            </div>
           </div>
         </div>
       </div>

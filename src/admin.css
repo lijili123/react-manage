@@ -11,5 +11,15 @@
 .Con_right{
   flex:1;
   height:100vh;
-  background: #eee;
+  background: #ffffff;
+}
+.bread-main{
+
+}
+.main-con{
+  padding:20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #ffffff;
 }
