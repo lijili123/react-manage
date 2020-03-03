@@ -3,6 +3,7 @@
  */
 import React from 'react'
 import axios from 'axios';
+import requestAll from '../../config/api.js'
 import { withRouter } from 'react-router-dom'
 import { Menu, Dropdown, Icon } from 'antd';
 import './index.css'
@@ -11,13 +12,17 @@ import './index.css'
     userName:'管理员'
   }
   handleMenuClick=()=>{
-    axios({
-      url:"/frame/logout",
-      method:'delete'
-    }).then(res=>{
+    axios.delete('/frame/logout').then(res=>{
       window.sessionStorage.clear();
       window.location.reload();
     })
+    // requestAll({
+    //   url:"/frame/logout",
+    //   method:'delete'
+    // }).then(res=>{
+    //   window.sessionStorage.clear();
+    //   window.location.reload();
+    // })
   }
   render(){
     const menu = (
