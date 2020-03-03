@@ -80,7 +80,7 @@ class NavLeft extends React.Component{
     this.setState({
       currentKey:key
     })
-    console.log(item);
+    // console.log(item);
   }
   componentWillMount(){
     const menuTreeNode=this.renderMenu(MenuConfig)

@@ -19,8 +19,8 @@ export default class IRouter extends React.Component {
           <PrivateRoute path="/">
             <Admin>
               <Switch>
-                <Route path="/" component={Home}></Route>
-                <Route path="/list" component={List}></Route>
+                <Route path="/" exact={true} component={Home}></Route>
+                <Route path="/list" exact={true} component={List}></Route>
                 <Route component={NoMatch}></Route>
               </Switch>
             </Admin>

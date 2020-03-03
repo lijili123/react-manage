@@ -24,32 +24,34 @@ class Login extends React.Component {
     let userInfo = this.props.form.getFieldsValue();
     console.log("userInfo", userInfo);
     var _this = this;
-    console.log(_this.props.history);
-    window.sessionStorage.setItem("user", true);
-    _this.props.history.replace("/");
+    // console.log(_this.props.history);
+    // window.sessionStorage.setItem("user", true);
+    // _this.props.history.replace("/");
 
-    // this.props.form.validateFields((err,values)=>{
-    //   axios({
-    //     url:`/frame/login?lvcode=${userInfo.code}`,
-    //     method: 'post',
-    //     data: {
-    //       loginId:userInfo.loginId,
-    //       password:userInfo.password
-    //     }
-    //   }).then(res=>{
-    //     axios({
-    //       url:'/frame/users/menus',
-    //       method: 'get',
-    //     }).then(data=>{
-    //       debugger
-    //       // console.log(data);
-    //       console.log(_this.props);
-    //       _this.props.history.replace('/home')
-    //       window.sessionStorage.setItem('menus',JSON.stringify(data.data.data))
-    //       window.sessionStorage.setItem('user',true)
-    //     })
-    //   })
-    // })
+    this.props.form.validateFields((err,values)=>{
+      if(!err){
+        axios({
+          url:`/frame/login?lvcode=${userInfo.code}`,
+          method: 'post',
+          data: {
+            loginId:userInfo.loginId,
+            password:MD5(userInfo.password)
+          }
+        }).then(res=>{
+          axios({
+            url:'/frame/users/menus',
+            method: 'get',
+          }).then(data=>{
+
+            // console.log(data);
+            // console.log(_this.props);
+            window.sessionStorage.setItem('menus',JSON.stringify(data.data))
+            window.sessionStorage.setItem('user',true)
+            _this.props.history.replace('/')
+          })
+        })
+      }
+    })
   };
   handleCode = e => {
     let imgs = "/frame/slcfg/lvcode" + "?linkTime=" + new Date().getTime();
