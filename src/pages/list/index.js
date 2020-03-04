@@ -1,7 +1,9 @@
 import React from 'react'
 import {requestAll} from '../../config/api.js'
 
-import {Table} from 'antd'
+import {Table,Button} from 'antd'
+import moment from 'moment'
+import './index.less'
 
 
 export default class List extends React.Component {
@@ -15,13 +17,44 @@ export default class List extends React.Component {
         title: '客户姓名',
         dataIndex: 'customerName',
         key: 'customerName',
+        align:'center'
+      },
+      {
+        title:'协议编号',
+        dataIndex:'code',
+        key:'code',
+        align:'center'
       },
       {
         title: '楼栋',
         dataIndex: 'buildingName',
         key: 'buildingName',
+        align:'center'
+      },
+      {
+        title:'开始时间',
+        dataIndex:'startDate',
+        key:'startDate',
+        align:'center',
+        render:(text, record, index)=>{
+          return moment(text).format('YYYY-MM-DD')
+        }
+      },
+      {
+        title: '操作',
+        dataIndex: 'action',
+        key: 'action',
+        align:'left',
+        render: (text,record,index) => <div className="btn-list">
+          <Button type="primary"size="small" onClick={()=>this.handleWatch(record)}>查看</Button>
+          <Button type="primary" size="small">编辑</Button>
+          <Button type="danger" size="small">删除</Button>
+        </div>,
       },
     ]
+  }
+  handleWatch=(record)=>{
+    console.log(record);
   }
   getList(){
     requestAll({
@@ -45,7 +78,6 @@ export default class List extends React.Component {
     return (
       <div>
         <Table dataSource={this.state.tableList} columns={this.state.columns} />;
-        this is List page.
       </div>
     );
   }

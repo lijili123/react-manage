@@ -26,9 +26,9 @@ axios.interceptors.request.use(function (config) {
 axios.interceptors.response.use(function (response) {
   // 对响应数据做点什么
   // message.success({ content: 'Loaded!'})
-  setTimeout(loading,1000)
   let {data:{code,msg,data},headers:{total}}=response
   if(code==0){
+    setTimeout(loading,1000)
     if(total){
       return {listTotal:Number(total),data}
     }else{
