@@ -7,7 +7,7 @@ import MenuConfig from './../../config/menuConfig'
 import { connect } from 'react-redux'
 import { switchMenu } from './../../pages/redux/action'
 import './index.css'
-import { Menu, Icon } from 'antd';
+import { Menu } from 'antd';
 const { SubMenu } = Menu;
 
 class NavLeft extends React.Component{
