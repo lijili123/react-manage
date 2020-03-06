@@ -3,6 +3,7 @@
  */
 import React from 'react'
 import { Drawer, Form, Button, Col, Row, Input, Select, DatePicker } from 'antd';
+import moment from 'moment'
 const { Option } = Select;
 
 class DrawerForm extends React.Component {
@@ -50,7 +51,8 @@ class DrawerForm extends React.Component {
       if(err){
         return
       }
-      // console.log(formData);
+      console.log(formData);
+      console.log(moment(formData.endDate).format('YYYY-MM-DD'));
       _this.props.onCloseSave()
     })
   }
@@ -151,6 +153,44 @@ class DrawerForm extends React.Component {
                       ],
                       initialValue:formData.code
                     })(<Input placeholder="请输入" disabled={this.props.clickType=='watch'}  />)
+                  }
+                </Form.Item>
+              </Col>
+            </Row>
+            <Row gutter={16}>
+              <Col span={12}>
+                <Form.Item
+                  label="开始日期"
+                >
+                  {
+                    getFieldDecorator('startDate',{
+                      rules:[
+                        {
+                          required: true,
+                          message: '请选择开始日期',
+                        },
+                      ],
+                      initialValue:moment(formData.startDate)
+                    })( <DatePicker disabled={this.props.clickType=='watch'} style={{
+                      width: '100%',
+                    }}/>)
+                  }
+                </Form.Item>
+              </Col>
+              <Col span={12}>
+                <Form.Item
+                  label="结束日期"
+                >
+                  {
+                    getFieldDecorator('endDate',{
+                      rules:[
+                        {
+                          required: true,
+                          message: '请选择结束日期',
+                        },
+                      ],
+                      initialValue:moment(formData.endDate)
+                    })( <DatePicker disabled={this.props.clickType=='watch'} style={{width:'100%'}} />)
                   }
                 </Form.Item>
               </Col>

@@ -11,10 +11,14 @@ import IRouter from './route'
 import { Provider  } from 'react-redux'
 import store from './pages/redux/store'
 import * as serviceWorker from './serviceWorker';
+import {ConfigProvider} from 'antd'
+import zhCN from 'antd/es/locale/zh_CN';
 
 ReactDOM.render(
   <Provider store={store}>
-    <IRouter />
+    <ConfigProvider locale={zhCN}>
+      <IRouter />
+    </ConfigProvider>
   </Provider>,
   document.getElementById('root'));
 

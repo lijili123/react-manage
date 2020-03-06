@@ -174,7 +174,6 @@ export default class List extends React.Component {
 
   render() {
     const pagination={
-      pageSize:5,
     }
     return (
       <div>
