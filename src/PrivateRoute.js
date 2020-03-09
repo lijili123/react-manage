@@ -6,7 +6,7 @@ import { Route, Redirect } from "react-router-dom";
 
 function PrivateRoute({ children, ...rest }) {
   let user = JSON.parse(window.sessionStorage.getItem("user"));
-  console.log("PrivateRoute-user", user);
+  // console.log("PrivateRoute-user", user);
   return (
     <Route
       {...rest}
