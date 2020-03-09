@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import axios from 'axios';
-import requestAll from '../../config/api.js'
+// import requestAll from '../../config/api.js'
 import { withRouter } from 'react-router-dom'
 import { Menu, Dropdown, Icon } from 'antd';
 import './index.css'

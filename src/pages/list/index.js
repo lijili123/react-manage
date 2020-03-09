@@ -19,6 +19,7 @@ export default class List extends React.Component {
     super(props)
   }
   state={
+
     tableList:[{
       customerName:"张三",
       code:'naskdkml',
@@ -114,7 +115,9 @@ export default class List extends React.Component {
           <Button type="danger" size="small" onClick={()=>this.handleDel(index)}>删除</Button>
         </div>,
       },
-    ]
+    ],
+    current:1,
+    pageSize:5,
   }
   handleAdd=()=>{
     this.setState({
@@ -145,9 +148,12 @@ export default class List extends React.Component {
     })
   }
   handleClose=()=>{
-    this.setState({
-      visible:false
-    })
+    // this.setState({
+    //   visible:false
+    // })
+    this.setState(currentState=>({
+      visible:!currentState.visible
+    }))
   }
   handleSave = () => {
     this.setState({
@@ -173,7 +179,27 @@ export default class List extends React.Component {
   }
 
   render() {
-    const pagination={
+
+   let  pagination={
+      current:this.state.current,//页码
+        pageSize:this.state.pageSize,//每页条数
+        pageSizeOptions:['5' , '10', '15', '20', '30', '40'],
+        showSizeChanger:true,
+        showQuickJumper:true,
+        onChange:(page, pageSize)=>{
+        //页码改变
+        this.setState({
+          current:page,
+          pageSize:pageSize
+        })
+      },
+        onShowSizeChange:(current, size)=>{
+        //每页条数
+          this.setState({
+            current:current,
+            pageSize:size
+          })
+      }
     }
     return (
       <div>

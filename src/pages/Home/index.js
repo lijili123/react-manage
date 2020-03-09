@@ -62,13 +62,20 @@ class Map extends Component{
       // var marker = new window.BMap.Marker(point);
       // map.addOverlay(marker);//像地图添加标注
     })
-
-
-
+  }
+  testWebSocket(){
+    let socket=new WebSocket('ws://121.40.165.18:8800')
+    socket.onopen=function () {
+      socket.send('测试sss')
+    }
+    socket.onmessage=function (evt) {
+      console.log(evt.data);
+    }
   }
   componentDidMount(){
     this.initMap()
     this.createMap()
+    // this.testWebSocket()
   }
   render(){
     return <div className='map-con'>

@@ -1,11 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import Admin from './Admin';
-import Home from './pages/router_demo/router1/Home';
-import RouteDemo from './pages/router_demo/router2/router';
-import RouteD from './pages/router_demo/router3/router';
 import IRouter from './route'
 // import 'antd/dist/antd.css';//加入按需加载会自动加载css和js
 import { Provider  } from 'react-redux'
