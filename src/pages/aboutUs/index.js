@@ -6,12 +6,13 @@ import './index.less'
 import {Button} from 'antd'
 import { connect } from 'react-redux'
 import {increase,decrease} from './../redux/action/index'
+import {add} from './../redux/add/action'
 import store from './../redux/store'
 const ValueContent=React.createContext({
   theme:'dddd'
 })
 function Increase(props) {
-  function add() {
+  function addF() {
     let {dispatch}=props
     dispatch(increase())
   }
@@ -20,11 +21,20 @@ function Increase(props) {
       store.dispatch(decrease())
     }
   }
+  function add1() {
+    let {dispatch}=props
+    dispatch(add())
+  }
   return (
-    <div className="btn-con">
-      <Button type="primary" onClick={add}>加1</Button>
-      <p>{props.count}</p>
-      <Button type="primary" onClick={minus}>减1</Button>
+    <div>
+      <div className="btn-con">
+        <Button type="primary" onClick={addF}>加1</Button>
+        <p>{props.count}</p>
+        <Button type="primary" onClick={minus}>减1</Button>
+      </div>
+      <br/>
+      <p>{props.num}</p>
+      <Button type="primary" onClick={add1}>加1</Button>
     </div>
   )
 }
@@ -68,7 +78,8 @@ class ThemedButton extends React.Component {
 
 const mapStateProps =(state)=>{
   return {
-    count:state.count
+    count:state.reducer.count,
+    num:state.addReducer.num
   }
 }
 

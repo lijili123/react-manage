@@ -19,7 +19,7 @@ class Admin extends React.Component{
         <div className="Con_right">
           <Header></Header>
           <div  className="main-con">
-            <div className='bread-main'><h2>{store.getState().menuName}</h2></div>
+            <div className='bread-main'><h2>{store.getState().reducer.menuName}</h2></div>
             {/*<div className="bread"> 通过store.getState()获取状态 {this.props.menuName}</div>*/}
             {/*<div className="bread"> 通过this.props获取状态 {store.getState().menuName}</div>*/}
             <div>
@@ -33,7 +33,7 @@ class Admin extends React.Component{
 }
 const mapStateProps =(state)=>{
   return {
-    menuName:state.menuName
+    menuName:state.reducer.menuName
   }
 }
 export  default connect(mapStateProps)(Admin)

@@ -1,7 +1,13 @@
 /**
  * Created by Ljili on 2020/1/2.
  */
-import { createStore } from 'redux'
+import { createStore,combineReducers } from 'redux'
 import reducer from './../reducer'
-const store=createStore(reducer)
+import addReducer from './../add/reducer'
+const reducerAll = combineReducers({
+  reducer,
+  addReducer
+})//组合reducer store.getState() 返回值 {reducer:{},addReducer:{}}
+
+const store=createStore(reducerAll)
 export default store
