@@ -57,7 +57,8 @@ export default class List extends React.Component {
         title: '客户姓名',
         dataIndex: 'customerName',
         key: 'customerName',
-        align:'center'
+        align:'center',
+        ellipsis:true
       },
       {
         title: '性别',
