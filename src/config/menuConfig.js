@@ -38,8 +38,8 @@ const menuList = [
         path: "/about1"
       },
       {
-        name: "关于我们2",
-        path: "/about2"
+        name: "富文本",
+        path: "/rich"
       }
     ]
   }

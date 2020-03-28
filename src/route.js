@@ -10,6 +10,7 @@ import List from "./pages/list";
 import NoMatch from "./pages/NoMatch";
 import Login from "./pages/Login";
 import AboutUs from './pages/aboutUs'
+import Rich from './pages/RichText'
 
 // const Login=lazy(()=>import('./pages/Login'))
 // const Home=lazy(()=>import('./pages/Home'))
@@ -31,6 +32,7 @@ export default class IRouter extends React.Component {
                   <Route path="/" exact={true} component={Home}></Route>
                   <Route path="/list" exact={true} component={List}></Route>
                   <Route path="/about1" exact={true} component={AboutUs}></Route>
+                  <Route path="/rich" exact={true} component={Rich}></Route>
                   <Route component={NoMatch}></Route>
                 </Switch>
               {/*</Suspense>*/}
