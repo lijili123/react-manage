@@ -2,7 +2,7 @@
  * Created by Ljili on 2019/12/30.
  */
 import React from 'react'
-import {NavLink} from 'react-router-dom'
+import {NavLink,withRouter } from 'react-router-dom'
 import MenuConfig from './../../config/menuConfig'
 import { connect } from 'react-redux'
 import { switchMenu } from './../../pages/redux/action'
@@ -11,6 +11,9 @@ import { Menu } from 'antd';
 const { SubMenu } = Menu;
 
 class NavLeft extends React.Component{
+  constructor(props){
+    super(props)
+  }
   state={
     currentKey: '/',
     arr:[
@@ -124,7 +127,7 @@ class NavLeft extends React.Component{
             <Menu
               mode="inline"
               theme="dark"
-              selectedKeys={[this.state.currentKey]}
+              selectedKeys={[this.props.location.pathname]}
               onClick={this.handleClick}
             >
               {this.state.menuTreeNode}
@@ -134,4 +137,4 @@ class NavLeft extends React.Component{
       );
   }
 }
-export default connect()(NavLeft)
+export default connect()(withRouter(NavLeft))

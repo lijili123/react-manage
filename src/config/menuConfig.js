@@ -40,6 +40,10 @@ const menuList = [
       {
         name: "富文本",
         path: "/rich"
+      },
+      {
+        name: "富文本2",
+        path: "/tiny"
       }
     ]
   }
